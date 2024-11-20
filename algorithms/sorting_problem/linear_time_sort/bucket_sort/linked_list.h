@@ -30,18 +30,18 @@ public:
         }
     }
 
-    /*Note: this implementation isn't stable!!*/
+    /* NOTE: this implementation isn't stable!! */
     void insertion_sort() {
         if (head == nullptr) return;
 
         for (Node* cur = head->next, *prev = head; cur != nullptr; ) {
-            Node* ins_pos = nullptr;                               //position to insert cur next to
+            Node* ins_pos = nullptr;                               // Position to insert cur next to
             for (Node* bef = head; ; bef = bef->next)
                 if (bef->data < cur->data) {
                     ins_pos = bef;
                 } else break;
 
-            //Update prev & cur properly
+            // Update prev & cur properly
             if (prev == ins_pos) {
                 prev = cur;
                 cur = cur->next;
@@ -73,14 +73,14 @@ public:
         return *this;
     }
 private:      
-    /*Move u to next to ins_pos*/
+    /* Move u to next to ins_pos */
     void move(Node* u, Node* prev, Node* ins_pos) {
-        //remove u from list
+        // Remove u from list
         prev->next = u->next;              
         if (u->next == nullptr)
             tail = prev;
 
-        //add u to ins_pos
+        // Add u to ins_pos
         if (ins_pos == nullptr) {         
             u->next = head;
             head = u;
@@ -88,9 +88,9 @@ private:
             u->next = ins_pos->next;
             ins_pos->next = u;
         }
-        if (u->next == nullptr)
+        if (u->next == nullptr) {
             tail = u;
-
+        }
     } 
 };
 

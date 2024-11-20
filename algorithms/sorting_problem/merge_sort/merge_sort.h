@@ -6,7 +6,7 @@
 #include <type_traits>
 #include <functional>
 
-//Merge sort with random access iterators
+// Merge sort with random access iterators
 /*---------------------------------------*/
 template <typename Iter, typename Elem_T = typename std::iterator_traits<Iter>::value_type, typename Comp = std::function<bool(const Elem_T&, const Elem_T&)>>
 auto merge(Iter begin, Iter mid, Iter end, const Comp& less = std::less<const Elem_T&>{})
@@ -67,7 +67,7 @@ auto merge_sort(Iter begin, Iter end, const Comp& less = std::less<const Elem_T&
     split(begin, end, less);
 }
 
-//Merge sort with forward and bidirectional iterators
+// Merge sort with forward and bidirectional iterators
 /*--------------------------------------------*/
 template <typename Iter, typename Elem_T = typename std::iterator_traits<Iter>::value_type, typename Comp = std::function<bool(const Elem_T&, const Elem_T&)>>
 auto merge(Iter begin, Iter mid, Iter end, Comp less = std::less<const Elem_T&>{})
@@ -113,7 +113,7 @@ auto split(Iter begin, Iter end, const Comp& less = std::less<const Elem_T&>{})
                                                 || std::is_same<typename std::iterator_traits<Iter>::iterator_category,
                                                              typename std::forward_iterator_tag>::value,
                                                 void> {
-    Iter tmp = begin;           //This is dumb
+    Iter tmp = begin;           // This is dumb
     if (++tmp == end) return;
 
     Iter fast = begin, slow = begin;

@@ -16,7 +16,7 @@ auto max_heapify(long long cur, Iter begin, Iter end, const Comp& less = std::le
                                 -> std::enable_if_t<std::is_same<typename std::iterator_traits<Iter>::iterator_category,
                                                                  typename std::random_access_iterator_tag>::value,
                                                     void> {
-    using std::swap;    //This is intentional, see Koenig lookup on cppreference
+    using std::swap;    // This is intentional, see Koenig lookup on cppreference
 
     const long long len = end - begin;
     while (cur < len) {
@@ -27,8 +27,8 @@ auto max_heapify(long long cur, Iter begin, Iter end, const Comp& less = std::le
             if (less(elem_at(begin, greatest_id), elem_at(begin, left_id)))
                 greatest_id = left_id;
 
-            //The check for right child is nested inside the if block for a little optimization
-            //because if left_id > len, there's no way right_id < len.
+            // The check for right child is nested inside the if block for a little optimization
+            // because if left_id > len, there's no way right_id < len.
             const long long right_id = right(cur);
             if (right_id < len && less(elem_at(begin, greatest_id), elem_at(begin, right_id)))
                 greatest_id = right_id;

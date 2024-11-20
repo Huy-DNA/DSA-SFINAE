@@ -118,7 +118,7 @@ private:
         return _dec_wrap(_head, 1);
     }
 
-    inline size_t _get_tail() const {     //careful when _size == 0
+    inline size_t _get_tail() const {     // Careful when _size == 0
         return _inc_wrap(_head, _size - 1);
     }
 

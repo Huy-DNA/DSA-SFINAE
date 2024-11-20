@@ -6,9 +6,9 @@
 #include <stdexcept>
 #include <bitset>
 
-/*DirectAddressingTable<Value_T, K_MAX> can be thought of as mapping from a key in range [0, K_MAX] to a value of Value_T.
-  Value_T must be of TriviallyCopyableType,
-  K_MAX must be nonnegative.*/
+/* DirectAddressingTable<Value_T, K_MAX> can be thought of as mapping from a key in range [0, K_MAX] to a value of Value_T.
+ * Value_T must be of TriviallyCopyableType,
+ * K_MAX must be nonnegative. */
 template <typename Value_T, size_t K_MAX,
           typename = std::enable_if_t<std::is_trivially_copyable<Value_T>::value, void>>
 class DirectAddressingTable {
